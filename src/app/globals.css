@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color System */
+    --background: 240 10% 4%;      /* Very dark, almost black (#09090b) */
+    --foreground: 0 0% 98%;        /* Near white (#fafafa) */
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 210 100% 60%;        /* A sharp blue accent for tech feel */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    
+    /* Radii - Soft and modern */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    /* Spacing Rythm */
+    --section-py: 6rem;
+    --section-py-md: 8rem;
+    --section-py-lg: 10rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-accent-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-background/70 backdrop-blur-md border border-white/5;
+  }
+
+  .hover-card {
+    @apply transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/10 border border-white/5 hover:border-white/10;
+  }
+
+  .profile-float {
+    animation: profile-float 5s ease-in-out infinite;
+  }
+}
+
+@keyframes profile-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-float {
+    animation: none;
+  }
+}

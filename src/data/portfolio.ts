@@ -1,0 +1,142 @@
+export interface Project {
+  slug: string;
+  title: string;
+  shortDescription: string;
+  category: string;
+  technologies: string[];
+  capabilities: string[];
+  description: string;
+  architecture: string[];
+  features: string[];
+  repositoryUrl: string;
+  liveUrl?: string;
+  featured: boolean;
+}
+
+export const projects: Project[] = [
+  {
+    slug: "webhunt",
+    title: "WebHunt",
+    shortDescription: "Engineering a worldwide business and technology opportunity discovery platform.",
+    category: "B2B Intelligence / Lead Discovery",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    capabilities: ["Full-Stack Platform", "Data Discovery", "Lead Pipeline"],
+    description: "WebHunt is a lead discovery platform designed for agencies, freelancers, software developers, consultants, and businesses looking for new opportunities around the world. It brings business discovery and remote opportunity discovery together in one simple interface.",
+    architecture: ["App Router", "Server Components", "Middleware", "Prisma Data Layer"],
+    features: ["Physical Business Search", "Online Opportunity Search", "Lead Pipeline Management", "Contact Discovery"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/WebHunt",
+    liveUrl: "https://web-hunt-delta.vercel.app/",
+    featured: true,
+  },
+  {
+    slug: "gacks-ai",
+    title: "GACKS P.A.",
+    shortDescription: "An experimental production-oriented agentic AI personal operator architecture.",
+    category: "AI Engineering / Agentic Systems",
+    technologies: ["React 19", "Vite", "Gemini", "Claude", "Docker", "WebRTC"],
+    capabilities: ["Agentic AI", "Context Engineering", "Model Routing", "Tool Execution"],
+    description: "GACKS P.A. V2 is an architectural evolution from a local voice assistant into a production-grade, persistent, multimodal personal AI operator. It understands context, creates structured execution plans, invokes sandboxed tools, verifies outcomes against real systems, and seamless integrates with screens and cameras.",
+    architecture: ["Context Engine", "Orchestrator", "Planner", "Model Router", "Tool Execution Registry", "Verifier"],
+    features: ["Persistent Missions", "Multi-Tier Memory", "Closed-Loop Verification", "Voice & Vision Integration"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/Gacks-AI",
+    liveUrl: "https://gacks-ai.vercel.app/",
+    featured: true,
+  },
+  {
+    slug: "yardly-automotive",
+    title: "Yardly Automotives",
+    shortDescription: "Engineering a digital automotive marketplace for vehicle discovery and seller connections.",
+    category: "Automotive Marketplace",
+    technologies: ["TypeScript", "Supabase", "Next.js", "Tailwind"],
+    capabilities: ["Marketplace Architecture", "Advanced Filtering", "Database Security (RLS)"],
+    description: "Yardly Automotives is a digital automotive marketplace designed to make buying and selling vehicles in Kenya simpler, faster, and more transparent. It connects vehicle buyers, private sellers, car yards, and automotive businesses in one digital marketplace.",
+    architecture: ["Supabase Backend", "Row Level Security", "Payment Integration", "Serverless Functions"],
+    features: ["Vehicle Discovery", "Seller Workflows", "Protected Documentation", "Real-Time Search & Filtering"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/YARDLY-Automotive",
+    liveUrl: "https://yardlyautomotive.vercel.app",
+    featured: true,
+  },
+  {
+    slug: "webhunt-android",
+    title: "WebHunt Android",
+    shortDescription: "The mobile application engineering counterpart to WebHunt.",
+    category: "Mobile Engineering / Android",
+    technologies: ["Kotlin", "Android SDK", "REST APIs"],
+    capabilities: ["Mobile Architecture", "API Integration", "Authentication"],
+    description: "WebHunt Android brings the power of the WebHunt B2B lead discovery platform to a native mobile experience. It is designed to provide a responsive and device-oriented product experience for users on the go.",
+    architecture: ["Native Android", "REST API Communication", "Authentication Flow"],
+    features: ["Mobile Search Experience", "Responsive UX", "Backend API Integration"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/WebHunt-Android",
+    featured: false,
+  },
+  {
+    slug: "arcade-fx",
+    title: "Arcade FX",
+    shortDescription: "A professional quantitative trading analysis engine and native Settings Center.",
+    category: "Financial Engineering / Trading Systems",
+    technologies: ["TradingView Pine Script", "Quantitative Analysis"],
+    capabilities: ["Algorithmic Trading", "Smart Money Concepts", "Deterministic Calculations"],
+    description: "A professional quantitative trading analysis engine and interactive charting workspace built according to Institutional Smart Money Concepts (SMC) and 5AM Candle Range Theory (CRT). Designed with zero-repainting guarantees.",
+    architecture: ["Quantitative Engine", "Timeframe Analysis", "Signal Generation"],
+    features: ["Institutional Smart Money Concepts", "5AM Candle Range Theory", "Zero-repainting Algorithms", "Interactive Charting"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/Arcade-Fx",
+    liveUrl: "https://arcadefx.live/",
+    featured: true,
+  },
+  {
+    slug: "bm-forex-hub",
+    title: "BM Forex Hub",
+    shortDescription: "Enterprise-scale Email Notification & Bulk Broadcast Infrastructure.",
+    category: "Backend Infrastructure / Communications",
+    technologies: ["Node.js", "Email APIs", "Queues"],
+    capabilities: ["Bulk Broadcast", "Rate-limiting", "Async Workers"],
+    description: "Production-grade, enterprise-scale Email Notification & Bulk Broadcast Infrastructure for BM Forex Hub. It handles real-time email communications, rate-limited OTP verification, multi-provider abstraction, and asynchronous queue workers.",
+    architecture: ["Asynchronous Queue Workers", "Multi-provider Abstraction", "Rate-limiting Service"],
+    features: ["Real-time Communications", "OTP Verification", "Campaign Scheduling", "Draft Management"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/BM-FOREX-HUB",
+    liveUrl: "https://bmforexhub.exchange/",
+    featured: false,
+  },
+  {
+    slug: "leavoyage-resort",
+    title: "Le Voyage Resort",
+    shortDescription: "A modern, high-conversion luxury resort and hospitality web application.",
+    category: "Hospitality / Full-Stack Web App",
+    technologies: ["React", "Serverless", "Tailwind CSS"],
+    capabilities: ["Booking Management", "Real-time Availability", "Interactive Showcase"],
+    description: "Le Voyage Resort is designed to deliver a seamless booking experience for guests and comprehensive booking management for resort operators. Built with high performance, elegant UI transitions, and robust serverless architecture.",
+    architecture: ["Serverless Architecture", "Real-time Synchronization", "Component-driven UI"],
+    features: ["Interactive Room Showcase", "Real-time Room Availability", "Dynamic Pricing", "Direct Booking Processing"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/Leavoyage-Resort",
+    liveUrl: "https://leavoyage-resort.vercel.app/",
+    featured: false,
+  },
+  {
+    slug: "pos-system",
+    title: "KaringPOS",
+    shortDescription: "Enterprise-grade Point of Sale (POS) and inventory management platform.",
+    category: "Business Systems / POS",
+    technologies: ["Web Technologies", "Hardware APIs", "Offline Sync"],
+    capabilities: ["Multi-Terminal Checkout", "Offline Resilience", "Payment Integrations"],
+    description: "KaringPOS is a custom-built, enterprise-grade Point of Sale (POS) and inventory management platform designed to handle multi-terminal retail operations, supermarkets, and service-based businesses.",
+    architecture: ["Multi-Terminal Sync", "Background Data Syncing", "Hardware Integration"],
+    features: ["USB/Bluetooth Barcode Support", "ESC/POS Thermal Printing", "Offline Resilience", "M-Pesa Express Integration"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/POS-SYSTEM",
+    liveUrl: "https://karingpos.shop",
+    featured: false,
+  },
+  {
+    slug: "varban-autoflex",
+    title: "VarbanAutoFlex",
+    shortDescription: "A specialized digital platform for car yard sales in Kenya.",
+    category: "Automotive / E-Commerce",
+    technologies: ["Web Application", "Database"],
+    capabilities: ["Vehicle Listings", "Search", "Sales Processing"],
+    description: "VarbanAutoFlex provides a dedicated platform for car yard sales in Kenya, facilitating connections between sellers and buyers with an optimized vehicle discovery experience.",
+    architecture: ["Frontend Application", "Database Integration"],
+    features: ["Car Listings", "Marketplace Operations"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/VarbanAutoFlex",
+    liveUrl: "https://varbanautoflex.com/",
+    featured: false,
+  }
+];
