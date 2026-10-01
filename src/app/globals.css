@@ -4,51 +4,50 @@
 
 @layer base {
   :root {
-    /* Color System */
-    --background: 240 10% 4%;      /* Very dark, almost black (#09090b) */
-    --foreground: 0 0% 98%;        /* Near white (#fafafa) */
-    --card: 240 10% 4%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 4%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 210 100% 60%;        /* A sharp blue accent for tech feel */
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    
-    /* Radii - Soft and modern */
-    --radius: 0.75rem;
-    --radius-sm: 0.5rem;
-    --radius-md: 0.75rem;
-    --radius-lg: 1rem;
-    --radius-xl: 1.5rem;
+    /* Light Editorial & Glassmorphism Color System (Zero Gradients) */
+    --background: 40 14% 97%;      /* Warm porcelain off-white (#F8F8F6) */
+    --foreground: 240 10% 8%;      /* Deep editorial near-black (#121216) */
+    --card: 0 0% 100%;             /* Pure white (#FFFFFF) */
+    --card-foreground: 240 10% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+    --primary: 240 10% 8%;         /* Crisp near-black for primary typography & actions */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 6% 93%;       /* Subtle neutral surface (#ECECEF) */
+    --secondary-foreground: 240 10% 12%;
+    --muted: 240 6% 94%;           /* Muted container surface (#EFEFF2) */
+    --muted-foreground: 240 5% 38%; /* High-contrast readable neutral gray (#5C5C66) */
+    --accent: 210 100% 45%;        /* Brand technical blue calibrated for light surfaces (#0073E6) */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 89%;          /* Hairline neutral border (#E2E2E6) */
+    --input: 240 6% 88%;
+    --ring: 210 100% 45%;
 
-    /* Spacing Rythm */
-    --section-py: 6rem;
-    --section-py-md: 8rem;
-    --section-py-lg: 10rem;
+    /* Consistent Border Radius Hierarchy */
+    --radius: 0.875rem;
+    --radius-sm: 0.625rem;
+    --radius-md: 0.875rem;
+    --radius-lg: 1.25rem;
+    --radius-xl: 1.75rem;
+
+    /* Coherent Spacing Rhythm */
+    --section-py: 5rem;
+    --section-py-md: 6.5rem;
+    --section-py-lg: 8rem;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 
   ::selection {
-    @apply bg-accent/30 text-accent-foreground;
+    @apply bg-accent/15 text-foreground;
   }
 }
 
@@ -56,29 +55,51 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Glass effect */
+
+  /* Restrained Glassmorphism Surfaces (No Gradients) */
   .glass {
-    @apply bg-background/70 backdrop-blur-md border border-white/5;
+    @apply bg-white/85 backdrop-blur-md border border-black/[0.06] shadow-[0_4px_24px_rgba(15,23,42,0.04)];
+  }
+
+  .glass-card {
+    @apply bg-white/85 backdrop-blur-xl border border-black/[0.07] shadow-[0_10px_30px_rgba(15,23,42,0.045)];
+  }
+
+  .surface-card {
+    @apply bg-white/95 backdrop-blur-md border border-black/[0.07] shadow-[0_4px_20px_rgba(15,23,42,0.035)];
+  }
+
+  .pill-badge {
+    @apply bg-white/95 border border-black/[0.07] shadow-[0_2px_8px_rgba(15,23,42,0.03)] text-foreground;
   }
 
   .hover-card {
-    @apply transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/10 border border-white/5 hover:border-white/10;
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(15,23,42,0.07)] border border-black/[0.07] hover:border-black/[0.13];
   }
 
   .profile-float {
-    animation: profile-float 5s ease-in-out infinite;
+    animation: profile-float 6s ease-in-out infinite;
   }
 }
 
 @keyframes profile-float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-5px); }
   100% { transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .profile-float {
     animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

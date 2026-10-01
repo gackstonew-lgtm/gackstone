@@ -12,39 +12,46 @@ export default function TechStack() {
     { name: "Observability", items: ["Grafana", "Loki", "Tempo", "Mimir", "OpenTelemetry"] },
     { name: "Protocols", items: ["REST", "gRPC", "WebSockets"] },
     { name: "Financial Eng.", items: ["MQL5", "MetaTrader 5"] },
-    { name: "AI", items: ["Gemini", "LLMs", "Agentic Architecture"] }
+    { name: "AI", items: ["Gemini", "LLMs", "Agentic Architecture"] },
   ];
 
   return (
-    <section className="py-section-lg bg-black border-t border-white/5 relative overflow-hidden">
+    <section className="py-section-lg bg-white border-b border-black/[0.06]">
       <div className="container mx-auto px-6 max-w-7xl">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center mb-24"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45 }}
+          className="flex flex-col items-center text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Engineering Stack</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl text-balance">
-            We build with stable, production-ready technologies to ensure long-term maintainability and performance.
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-4">
+            Engineering Stack
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl text-balance">
+            Stable, production-ready technologies selected for long-term maintainability and performance.
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {categories.map((category, idx) => (
-            <motion.div 
-              key={idx} 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="flex flex-col items-center mb-8 mx-2 w-[180px] md:w-[220px]"
+            <motion.div
+              key={category.name}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.35, delay: idx * 0.04 }}
+              className="surface-card rounded-2xl p-5"
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-accent mb-6 font-mono text-center h-8">{category.name}</span>
-              <div className="flex flex-wrap justify-center gap-2">
-                {category.items.map((item, i) => (
-                  <span key={i} className="px-3 py-1.5 text-xs font-medium border border-white/10 bg-white/5 text-primary rounded-md hover:bg-white/10 transition-colors cursor-default">
+              <span className="block text-xs font-mono font-semibold uppercase tracking-wider text-accent mb-3">
+                {category.name}
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {category.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-2.5 py-1 text-xs font-medium border border-black/[0.07] bg-secondary/60 text-foreground rounded-lg"
+                  >
                     {item}
                   </span>
                 ))}

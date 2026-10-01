@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
   }, []);
 
   const phoneNumber = "254712052104";
-  const message = "Hello Gackstone, I came across your portfolio and would like to discuss a software development project with you. Please let me know how we can proceed.";
+  const message = "Hello Gackstone, I came across your Quantum Code Technologies portfolio and would like to discuss a software development project with you. Please let me know how we can proceed.";
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 

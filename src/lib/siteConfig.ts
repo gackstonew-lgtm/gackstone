@@ -1,0 +1,27 @@
+export const siteConfig = {
+  brandName: "Quantum Code Technologies",
+  shortBrandName: "Quantum Code",
+  engineerName: "Gackstone Baraka",
+  engineerTitle: "Senior Software Engineer • Full-Stack Systems & AI Architect",
+  engineerRole: "Senior Software Engineer",
+  engineerSpecialization: "Full-Stack Systems & AI Architect",
+  businessRegistrationNumber: "BN-J9S6WDAY",
+  businessRegistrationLabel: "Business Registration No: BN-J9S6WDAY",
+  email: "quantumcode7777@gmail.com",
+  mailtoUrl: "mailto:quantumcode7777@gmail.com",
+  whatsappNumber: "254712052104",
+  whatsappDisplay: "+254 712 052 104",
+  githubUrl: "https://github.com/gackstonew-lgtm",
+  githubUsername: "gackstonew-lgtm",
+  siteUrl: "https://gacksdev.vercel.app",
+  logoPath: "/brand/quantum-code-logo.png",
+  logoAlt: "Quantum Code Technologies logo",
+  logo192Path: "/brand/quantum-code-logo-192.png",
+  logo512Path: "/brand/quantum-code-logo-512.png",
+  logoMaskable512Path: "/brand/quantum-code-logo-maskable-512.png",
+  ogImagePath: "/brand/quantum-code-og.png",
+  profileImagePath: "/profile.png",
+  profileImageAlt: "Gackstone Baraka",
+} as const;
+
+export type SiteConfig = typeof siteConfig;
