@@ -33,7 +33,7 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/engineering", label: "Engineering" },
-    { href: "/insights", label: "Insights" },
+    { href: "/pricing", label: "Pricing" },
     { href: "/about", label: "About" },
   ];
 

@@ -1,0 +1,12 @@
+# Netlify config for gackstone (Next.js 14 App Router)
+# Docs: https://docs.netlify.com/frameworks/next-js/
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "true"
+
+# Cache Next.js build cache between deploys - Next.js Runtime is automatic on Netlify,
+# no extra plugin install needed.

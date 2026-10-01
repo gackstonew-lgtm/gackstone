@@ -1,12 +1,27 @@
 "use client";
 
-import { useState } from "react";
-import { Send, Bot, Mail, ShieldCheck } from "lucide-react";
+import { Suspense, useState } from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { Send, Bot, Mail, ShieldCheck, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import TypingText from "@/components/TypingText";
 import { siteConfig } from "@/lib/siteConfig";
+import { formatPlanPrice, getPlanById } from "@/data/pricing";
 
 export default function ContactPage() {
+  // useSearchParams needs a Suspense boundary for static rendering in Next.js 14
+  return (
+    <Suspense fallback={null}>
+      <ContactPageContent />
+    </Suspense>
+  );
+}
+
+function ContactPageContent() {
+  const searchParams = useSearchParams();
+  const selectedPlan = getPlanById(searchParams.get("plan"));
+
   const [idea, setIdea] = useState("");
   const [concept, setConcept] = useState<null | string>(null);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -46,7 +61,7 @@ Development Considerations:
     company: "",
     email: "",
     phone: "",
-    projectType: "web-app",
+    projectType: selectedPlan?.defaultProjectType ?? "web-app",
     description: "",
     budget: "tbd",
     timeline: "",
@@ -58,7 +73,7 @@ Development Considerations:
     const message = `Hello ${siteConfig.engineerName},
 
 I would like to discuss a project with ${siteConfig.brandName}.
-
+${selectedPlan ? `\nSelected Plan: ${selectedPlan.name} - ${formatPlanPrice(selectedPlan)}\n` : ""}
 Name: ${formData.name}
 Email: ${formData.email}
 ${formData.company ? `Company/Organization: ${formData.company}\n` : ""}${formData.phone ? `Phone: ${formData.phone}\n` : ""}Project Type: ${formData.projectType}
@@ -184,6 +199,27 @@ Thank you.`;
             <h2 className="text-2xl font-semibold text-foreground mb-6 tracking-tight">
               Formal Inquiry
             </h2>
+            {selectedPlan && (
+              <div className="mb-6 p-4 rounded-2xl bg-accent/[0.06] border border-accent/30 flex items-start justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <BadgeCheck size={20} className="text-accent shrink-0 mt-0.5" />
+                  <div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                      Selected Plan
+                    </div>
+                    <div className="text-foreground font-semibold">
+                      {selectedPlan.name} &middot; {formatPlanPrice(selectedPlan)}
+                    </div>
+                  </div>
+                </div>
+                <Link
+                  href="/pricing"
+                  className="text-xs font-semibold text-accent hover:underline whitespace-nowrap"
+                >
+                  Change plan
+                </Link>
+              </div>
+            )}
             <form onSubmit={handleFormalInquiry} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
