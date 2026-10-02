@@ -171,8 +171,8 @@ export default function Hero() {
               <Image
                 src="/brand/full-stack-web-development-poster.png"
                 alt="Full Stack Web Development services poster – Quantum Code"
-                width={606}
-                height={729}
+                width={687}
+                height={1024}
                 priority
                 sizes="(max-width: 448px) 100vw, 448px"
                 className="w-full h-auto rounded-2xl"
