@@ -11,6 +11,7 @@ import {
 import { projects } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import TypingText from "@/components/TypingText";
+import TechPill from "@/components/TechPill";
 
 export default function PortfolioPage() {
   useEffect(() => {
@@ -85,15 +86,10 @@ export default function PortfolioPage() {
 
                 <div className="flex flex-wrap gap-1.5 mt-auto">
                   {project.technologies.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs font-medium px-2.5 py-1 bg-white border border-black/[0.07] text-foreground rounded-lg"
-                    >
-                      {tech}
-                    </span>
+                    <TechPill key={tech} name={tech} size="sm" />
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="text-xs font-medium px-2.5 py-1 text-muted-foreground bg-secondary/70 rounded-lg">
+                    <span className="text-xs font-mono font-medium px-2.5 py-0.5 text-muted-foreground bg-secondary/80 border border-black/[0.06] rounded-full">
                       +{project.technologies.length - 4}
                     </span>
                   )}

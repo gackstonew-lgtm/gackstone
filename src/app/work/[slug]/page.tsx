@@ -12,6 +12,9 @@ import {
 import Link from "next/link";
 import TypingText from "@/components/TypingText";
 
+import { siteConfig } from "@/lib/siteConfig";
+import TechPill from "@/components/TechPill";
+
 export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
@@ -20,15 +23,35 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
-  if (!project) return { title: "Not Found" };
+  if (!project) return { title: "Project Not Found" };
+
+  const canonicalUrl = `${siteConfig.siteUrl}/work/${project.slug}`;
 
   return {
-    title: `${project.title} | Case Study | Quantum Code Technologies`,
+    title: `${project.title} — Software Architecture Case Study | ${siteConfig.brandName}`,
     description: project.shortDescription,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: `${project.title} | Engineering Case Study | Quantum Code Technologies`,
+      title: `${project.title} | Engineering Case Study | ${siteConfig.brandName}`,
       description: project.description,
+      url: canonicalUrl,
       type: "article",
+      images: [
+        {
+          url: siteConfig.ogImagePath,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — ${siteConfig.brandName}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | ${siteConfig.brandName}`,
+      description: project.shortDescription,
+      images: [siteConfig.ogImagePath],
     },
   };
 }
@@ -40,8 +63,59 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteConfig.siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Portfolio",
+            item: `${siteConfig.siteUrl}/portfolio`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.title,
+            item: `${siteConfig.siteUrl}/work/${project.slug}`,
+          },
+        ],
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: project.title,
+        description: project.description,
+        applicationCategory: project.category,
+        operatingSystem: "Web / Cross-Platform",
+        author: {
+          "@type": "Person",
+          name: siteConfig.engineerName,
+          url: siteConfig.siteUrl,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: siteConfig.brandName,
+          url: siteConfig.siteUrl,
+        },
+        url: `${siteConfig.siteUrl}/work/${project.slug}`,
+      },
+    ],
+  };
+
   return (
     <article className="py-32 bg-background/35 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
       <div className="container mx-auto px-6 max-w-4xl">
         <Link
           href="/portfolio"
@@ -267,13 +341,8 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, i) => (
-                <span
-                  key={i}
-                  className="px-3.5 py-1.5 pill-badge rounded-xl text-xs font-medium"
-                >
-                  {tech}
-                </span>
+              {project.technologies.map((tech) => (
+                <TechPill key={tech} name={tech} />
               ))}
             </div>
           </section>

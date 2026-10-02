@@ -22,14 +22,30 @@ export const metadata: Metadata = {
   keywords: [
     "Quantum Code Technologies",
     "Gackstone Baraka",
-    "Senior Software Engineer Portfolio",
+    "Senior Software Engineer Kenya",
     "Full-Stack Systems & AI Architect",
+    "Software Engineering Kenya",
+    "Next.js TypeScript Architecture",
     "Alpha Coach",
     "For Sale Marketplace",
     "WebHunt Security Scanner",
-    "Next.js TypeScript Architecture",
-    "Full-Stack Engineering Kenya",
+    "FinTech Trading Systems",
+    "Cloud Observability",
   ],
+  authors: [{ name: siteConfig.engineerName, url: siteConfig.siteUrl }],
+  creator: siteConfig.engineerName,
+  publisher: siteConfig.brandName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   alternates: {
     canonical: siteConfig.siteUrl,
   },
@@ -83,12 +99,17 @@ export default function RootLayout({
         url: siteConfig.siteUrl,
         logo: `${siteConfig.siteUrl}${siteConfig.logoPath}`,
         email: siteConfig.email,
+        telephone: "+254712052104",
         identifier: {
           "@type": "PropertyValue",
-          name: "Business Registration No",
+          name: "License No",
           value: siteConfig.businessRegistrationNumber,
         },
-        sameAs: [siteConfig.githubUrl],
+        sameAs: [
+          siteConfig.githubUrl,
+          "https://www.linkedin.com/in/quantum-code-technologies-69a150239",
+          "https://www.instagram.com/quantum_c0de_tech",
+        ],
         description:
           "Software engineering studio presenting the production portfolio and systems architecture work of Gackstone Baraka.",
       },
@@ -100,8 +121,23 @@ export default function RootLayout({
         image: `${siteConfig.siteUrl}${siteConfig.profileImagePath}`,
         url: siteConfig.siteUrl,
         email: siteConfig.email,
-        sameAs: [siteConfig.githubUrl],
+        sameAs: [
+          siteConfig.githubUrl,
+          "https://www.linkedin.com/in/quantum-code-technologies-69a150239",
+          "https://www.instagram.com/quantum_c0de_tech",
+        ],
         worksFor: {
+          "@id": `${siteConfig.siteUrl}/#organization`,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.siteUrl}/#website`,
+        url: siteConfig.siteUrl,
+        name: siteConfig.brandName,
+        description:
+          "Production software engineering portfolio, system architectures, and AI systems by Gackstone Baraka at Quantum Code Technologies.",
+        publisher: {
           "@id": `${siteConfig.siteUrl}/#organization`,
         },
       },

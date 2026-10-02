@@ -1,21 +1,21 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/portfolio";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://gacksdev.vercel.app";
+  const baseUrl = siteConfig.siteUrl;
 
   const staticRoutes: MetadataRoute.Sitemap = [
     "",
+    "/about",
     "/portfolio",
-    "/work",
     "/engineering",
     "/pricing",
-    "/about",
     "/contact",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: "weekly",
+    changeFrequency: route === "" ? "daily" : "weekly",
     priority: route === "" ? 1.0 : 0.8,
   }));
 

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,9 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/api/admin"],
+        disallow: ["/admin", "/api/"],
       },
     ],
-    sitemap: "https://gacksdev.vercel.app/sitemap.xml",
+    sitemap: `${siteConfig.siteUrl}/sitemap.xml`,
   };
 }

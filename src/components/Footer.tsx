@@ -118,13 +118,13 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/254703377395"
+                  href="https://wa.me/254704723254"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors inline-flex items-center gap-2 font-medium"
-                  aria-label="Contact via WhatsApp at 0703377395"
+                  aria-label="Contact via WhatsApp at 0704723254"
                 >
-                  <MessageCircle size={16} /> WhatsApp (0703377395)
+                  <MessageCircle size={16} /> WhatsApp (0704723254)
                 </a>
               </li>
             </ul>

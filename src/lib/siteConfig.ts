@@ -13,7 +13,7 @@ export const siteConfig = {
   whatsappDisplay: "+254 712 052 104",
   githubUrl: "https://github.com/gackstonew-lgtm",
   githubUsername: "gackstonew-lgtm",
-  siteUrl: "https://gacksdev.vercel.app",
+  siteUrl: "https://gackstone.quantumcode.co.ke",
   logoPath: "/brand/quantum-code-logo.png",
   logoAlt: "Quantum Code",
   logo192Path: "/brand/quantum-code-logo-192.png",
