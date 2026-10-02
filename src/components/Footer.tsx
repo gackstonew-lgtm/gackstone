@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Code2, Globe, Mail, ShieldCheck } from "lucide-react";
-import SystemStatusBadge from "@/components/SystemStatusBadge";
+import { Camera, Code2, Globe, Mail, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 
 export default function Footer() {
@@ -88,10 +87,44 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/quantum-code-technologies-69a150239"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-accent transition-colors inline-flex items-center gap-2 font-medium"
+                  aria-label="Quantum Code Technologies on LinkedIn"
                 >
                   <Globe size={16} /> LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/quantum_c0de_tech?stkn=MW5wbmxxNXZiNGMwNA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors inline-flex items-center gap-2 font-medium"
+                  aria-label="Quantum Code Technologies on Instagram"
+                >
+                  <Camera size={16} /> Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:0712052104"
+                  className="hover:text-accent transition-colors inline-flex items-center gap-2 font-medium"
+                  aria-label="Call or SMS 0712052104"
+                >
+                  <Phone size={16} /> 0712052104
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/254703377395"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors inline-flex items-center gap-2 font-medium"
+                  aria-label="Contact via WhatsApp at 0703377395"
+                >
+                  <MessageCircle size={16} /> WhatsApp (0703377395)
                 </a>
               </li>
             </ul>
@@ -118,12 +151,6 @@ export default function Footer() {
             <span className="font-mono text-xs text-foreground">
               {siteConfig.businessRegistrationLabel}
             </span>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <SystemStatusBadge />
-            <div className="font-mono text-xs px-3.5 py-1.5 bg-secondary border border-black/[0.06] text-foreground rounded-full">
-              Engineered in Kenya
-            </div>
           </div>
         </div>
       </div>
