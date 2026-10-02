@@ -13,6 +13,7 @@ import {
   Activity,
 } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import TechPill from "@/components/TechPill";
 
 type CommandTab =
   | "ENGINEERING LAB"
@@ -213,12 +214,7 @@ export default function EngineeringCommandCenter() {
                   </p>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {project.technologies.slice(0, 4).map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs font-medium px-2.5 py-1 bg-white border border-black/[0.07] text-foreground rounded-lg"
-                      >
-                        {tech}
-                      </span>
+                      <TechPill key={tech} name={tech} size="sm" />
                     ))}
                   </div>
                 </div>

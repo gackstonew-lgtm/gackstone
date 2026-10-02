@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/SectionHeader";
+import TechPill from "@/components/TechPill";
 
 const metricsColumn = [
   {
@@ -38,7 +39,7 @@ const capabilities = [
   {
     title: "Frontend Systems",
     icon: <Code2 size={18} />,
-    items: ["React 18/19", "Next.js 14", "TypeScript", "Tailwind CSS"],
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     title: "Backend & APIs",
@@ -48,12 +49,12 @@ const capabilities = [
   {
     title: "AI & Agents",
     icon: <Bot size={18} />,
-    items: ["Gemini & Claude", "Agentic Workflows", "Grounded RAG"],
+    items: ["Gemini", "Claude", "Agentic Workflows", "Grounded RAG"],
   },
   {
     title: "Data & Messaging",
     icon: <Database size={18} />,
-    items: ["PostgreSQL", "Prisma", "Supabase RLS", "Redis", "RabbitMQ"],
+    items: ["PostgreSQL", "Prisma", "Supabase", "Redis", "RabbitMQ"],
   },
   {
     title: "Cloud & DevOps",
@@ -68,10 +69,10 @@ const capabilities = [
   {
     title: "Mobile & 3D",
     icon: <Smartphone size={18} />,
-    items: ["Kotlin", "Java 17", "Android SDK", "libGDX 3D"],
+    items: ["Kotlin", "Java", "Android SDK", "libGDX"],
   },
   {
-    title: "Financial Eng.",
+    title: "Financial Engineering",
     icon: <LineChart size={18} />,
     items: ["MetaTrader 5", "MQL5", "Pine Script", "Trade Analytics"],
   },
@@ -92,7 +93,7 @@ export default function Capabilities() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Editorial Large Numerical Hierarchy (Inspired by Reference Image) */}
+          {/* Left Column: Editorial Large Numerical Hierarchy */}
           <div className="lg:col-span-5 space-y-10">
             {metricsColumn.map((item, idx) => (
               <motion.div
@@ -124,7 +125,6 @@ export default function Capabilities() {
 
           {/* Right Column: Glassmorphism Capability Cards with Circular Accent Badges */}
           <div className="lg:col-span-7 relative">
-            {/* Solid translucent blurred circle backdrop (No CSS Gradients) */}
             <div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] md:w-[440px] md:h-[440px] bg-accent/[0.11] rounded-full blur-[80px] pointer-events-none"
               aria-hidden="true"
@@ -149,14 +149,9 @@ export default function Capabilities() {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-1.5 mt-auto">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {cap.items.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs font-medium px-2.5 py-1 rounded-lg bg-white/90 border border-black/[0.06] text-muted-foreground"
-                      >
-                        {tech}
-                      </span>
+                      <TechPill key={tech} name={tech} />
                     ))}
                   </div>
                 </motion.div>

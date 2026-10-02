@@ -1,18 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TechPill from "@/components/TechPill";
 
 export default function TechStack() {
   const categories = [
     { name: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { name: "Backend", items: ["Go", "Python", "FastAPI", "Django", "Node.js", "NestJS"] },
-    { name: "Mobile", items: ["Kotlin", "Android SDK", "React Native"] },
-    { name: "Data", items: ["PostgreSQL", "Redis", "RabbitMQ", "CloudNativePG"] },
-    { name: "Infrastructure", items: ["Docker", "Kubernetes", "GitOps", "CI/CD"] },
-    { name: "Observability", items: ["Grafana", "Loki", "Tempo", "Mimir", "OpenTelemetry"] },
-    { name: "Protocols", items: ["REST", "gRPC", "WebSockets"] },
-    { name: "Financial Eng.", items: ["MQL5", "MetaTrader 5"] },
-    { name: "AI", items: ["Gemini", "LLMs", "Agentic Architecture"] },
+    { name: "Backend", items: ["Go", "Python", "FastAPI", "Node.js", "Express", "NestJS"] },
+    { name: "Mobile", items: ["Kotlin", "Java", "Android SDK", "libGDX"] },
+    { name: "Data", items: ["PostgreSQL", "Prisma", "Supabase", "Redis", "RabbitMQ"] },
+    { name: "Infrastructure", items: ["Docker", "Kubernetes", "GitOps", "CI/CD", "Vercel"] },
+    { name: "Observability", items: ["OpenTelemetry", "Grafana", "Loki", "Tempo", "Mimir"] },
+    { name: "Protocols", items: ["REST APIs", "gRPC", "WebSockets"] },
+    { name: "Financial Eng.", items: ["MetaTrader 5", "MQL5", "Pine Script", "Trade Analytics"] },
+    { name: "AI", items: ["Gemini", "Claude", "Agentic Workflows", "Grounded RAG"] },
   ];
 
   return (
@@ -46,14 +47,9 @@ export default function TechStack() {
               <span className="block text-xs font-mono font-semibold uppercase tracking-wider text-accent mb-3">
                 {category.name}
               </span>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2">
                 {category.items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-2.5 py-1 text-xs font-medium border border-black/[0.07] bg-secondary/60 text-foreground rounded-lg"
-                  >
-                    {item}
-                  </span>
+                  <TechPill key={item} name={item} size="sm" />
                 ))}
               </div>
             </motion.div>
