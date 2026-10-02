@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code2, Layers, ShieldCheck, Terminal } from "lucide-react";
+import { ArrowRight, Code2, Layers } from "lucide-react";
 import { motion } from "framer-motion";
 import TypingText, {
   TYPING_HEADING_CPS,
@@ -10,6 +10,7 @@ import TypingText, {
   TYPING_DEFAULT_MAX_DURATION_MS,
   TYPING_STAGGER_STEP_MS,
 } from "@/components/TypingText";
+import ProfileOrbit from "@/components/ProfileOrbit";
 import { siteConfig } from "@/lib/siteConfig";
 
 export default function Hero() {
@@ -49,6 +50,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-3.5">
+              <ProfileOrbit />
               <h1 className="text-4xl sm:text-6xl lg:text-[4.25rem] font-semibold tracking-tight text-foreground leading-[1.06]">
                 <TypingText
                   text={siteConfig.engineerName}
@@ -165,89 +167,16 @@ export default function Hero() {
             variants={itemVariants}
             className="lg:col-span-5 flex flex-col items-center lg:items-end"
           >
-            <div className="w-full max-w-md glass-card rounded-3xl p-6 md:p-8 relative">
-              <div className="flex items-center justify-between gap-4 mb-6">
-                {/* Profile Image + Quantum Code Logo Pairing */}
-                <div className="flex items-center gap-3.5">
-                  <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden bg-secondary border border-black/[0.08] shadow-sm shrink-0">
-                    <Image
-                      src={siteConfig.profileImagePath}
-                      alt={siteConfig.profileImageAlt}
-                      fill
-                      className="object-cover object-top"
-                      sizes="112px"
-                      priority
-                    />
-                  </div>
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-black/[0.08] shrink-0 flex items-center justify-center">
-                    <Image
-                      src={siteConfig.logoPath}
-                      alt={siteConfig.logoAlt}
-                      width={80}
-                      height={80}
-                      priority
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shrink-0 shadow-sm">
-                  <Terminal size={18} />
-                </div>
-              </div>
-
-              <div className="space-y-2 mb-6">
-                <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                  {siteConfig.brandName} &bull; Principal Architect
-                </div>
-                <div className="text-xl font-semibold text-foreground">
-                  Production-Grade Software Delivery
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Full-lifecycle system design spanning Next.js, TypeScript, Go, Python, PostgreSQL, native Android, and financial analytics.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 pt-4 border-t border-black/[0.06]">
-                <Link
-                  href="/work/alpha-coach"
-                  className="p-3.5 rounded-2xl bg-white border border-black/[0.06] hover:border-black/[0.15] transition-all group"
-                >
-                  <div className="text-[11px] font-mono text-accent mb-1">
-                    FEATURED FINTECH
-                  </div>
-                  <div className="text-sm font-semibold text-foreground flex items-center justify-between">
-                    Alpha Coach
-                    <ArrowRight
-                      size={14}
-                      className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
-                    />
-                  </div>
-                </Link>
-
-                <Link
-                  href="/work/for-sale"
-                  className="p-3.5 rounded-2xl bg-white border border-black/[0.06] hover:border-black/[0.15] transition-all group"
-                >
-                  <div className="text-[11px] font-mono text-accent mb-1">
-                    FEATURED PLATFORM
-                  </div>
-                  <div className="text-sm font-semibold text-foreground flex items-center justify-between">
-                    For Sale
-                    <ArrowRight
-                      size={14}
-                      className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
-                    />
-                  </div>
-                </Link>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-secondary/70 text-xs text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5 font-medium text-foreground">
-                  <ShieldCheck size={14} className="text-accent" />
-                  Verified GitHub Source
-                </span>
-                <span className="font-mono">{siteConfig.githubUsername}</span>
-              </div>
+            <div className="w-full max-w-md glass-card rounded-3xl p-2.5 md:p-3 relative">
+              <Image
+                src="/brand/full-stack-web-development-poster.png"
+                alt="Full Stack Web Development services poster – Quantum Code"
+                width={606}
+                height={729}
+                priority
+                sizes="(max-width: 448px) 100vw, 448px"
+                className="w-full h-auto rounded-2xl"
+              />
             </div>
           </motion.div>
         </motion.div>

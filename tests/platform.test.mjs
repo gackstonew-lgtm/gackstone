@@ -522,3 +522,44 @@ test("11. Feature Removal & Portfolio Simplification Integrity", () => {
 
 
 
+
+test("12. Hero Poster & Circular Profile Orbit Integration", () => {
+  const heroSource = fs.readFileSync(path.join(rootDir, "src/components/Hero.tsx"), "utf8");
+  const orbitSource = fs.readFileSync(path.join(rootDir, "src/components/ProfileOrbit.tsx"), "utf8");
+
+  // Right card is the Full-Stack poster with the required alt text; old card content is gone
+  assert.ok(
+    heroSource.includes("Full Stack Web Development services poster – Quantum Code") &&
+      heroSource.includes("/brand/full-stack-web-development-poster.png"),
+    "Hero must render the Full-Stack poster with the required alt text"
+  );
+  assert.ok(
+    !heroSource.includes("Production-Grade Software Delivery") &&
+      !heroSource.includes("Verified GitHub Source"),
+    "Old hero profile-card content must be removed"
+  );
+
+  // Profile orbit sits in the hero, reuses existing float utility, respects reduced motion
+  assert.ok(heroSource.includes("<ProfileOrbit />"), "Hero must render ProfileOrbit above the name");
+  assert.ok(
+    orbitSource.includes("profile-float") && orbitSource.includes("motion-reduce:animate-none"),
+    "ProfileOrbit must reuse profile-float and disable orbit under reduced motion"
+  );
+  assert.ok(
+    orbitSource.includes('aria-hidden="true"') && orbitSource.includes("pointer-events-none"),
+    "Orbit particles must be decorative and non-interactive"
+  );
+
+  // Assets exist
+  for (const asset of [
+    "public/brand/full-stack-web-development-poster.png",
+    "public/brand/gackstone-baraka-profile-circle.png",
+  ]) {
+    assert.ok(fs.existsSync(path.join(rootDir, asset)), `Missing asset ${asset}`);
+  }
+
+  // Stats row and CTAs preserved
+  for (const kept of ["Production Systems", "Audited Repositories", "Engineering Domains", "Explore Portfolio", "Engineering Process"]) {
+    assert.ok(heroSource.includes(kept), `Hero must still contain "${kept}"`);
+  }
+});
