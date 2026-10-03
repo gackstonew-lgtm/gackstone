@@ -1067,10 +1067,110 @@ export const projects: Project[] = [
       mobile: true,
       fintech: false
     }
+  },
+  {
+    slug: "g-tech-isp-billing-system",
+    title: "G-Tech ISP Billing System",
+    shortDescription: "Multi-tenant ISP and WISP billing, subscriber CRM, MikroTik RouterOS orchestration, FreeRADIUS AAA, and M-Pesa payment automation platform.",
+    category: "Telecom SaaS / ISP Billing & Network Operations",
+    technologies: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "PostgreSQL", "Supabase", "FreeRADIUS", "MikroTik RouterOS", "M-Pesa Daraja API", "WireGuard"],
+    capabilities: ["ISP / WISP Management", "MikroTik RouterOS Orchestration", "FreeRADIUS AAA", "M-Pesa Payment Automation", "PPPoE & Hotspot Billing", "Real-Time NOC Monitoring"],
+    description: "G-Tech ISP Billing System (G-Tech OS) is a multi-tenant SaaS platform engineered for Internet Service Providers (ISPs), Wireless ISPs (WISPs), hotspot operators, and fiber networks. It unifies subscriber CRM, PPPoE and dynamic hotspot captive portal billing, MikroTik RouterOS v6/v7 fleet orchestration over WireGuard tunnels, FreeRADIUS 3.x AAA session control, Safaricom Daraja M-Pesa payment automation, technician field work orders, and a real-time Network Operations Center (NOC).",
+    architecture: ["Next.js 15 App Router & React 19 SaaS Control Plane", "Multi-Tenant PostgreSQL & Supabase Row-Level Security (RLS)", "FreeRADIUS 3.x SQL AAA Engine (radcheck, radreply, radacct & CoA)", "MikroTik RouterOS API/REST Provisioning & WireGuard Control Plane", "Safaricom Daraja M-Pesa STK Push & C2B Webhook Reconciliation Engine", "Role-Based Access Control (RBAC) & Double-Entry Billing Ledger"],
+    features: ["PPPoE Subscriber CRM, Bandwidth Queues & Automated Suspension/Reconnection", "Dynamic Hotspot Captive Portal, Batch Voucher Generation & Self-Checkout", "Safaricom Daraja M-Pesa Express (STK Push) & C2B Paybill Automation", "MikroTik RouterOS Fleet Management & Script Provisioning", "Real-Time NOC Dashboard (Interface Traffic, CPU/RAM Telemetry & Alerts)", "Field Operations, Technician Work Orders & Customer Self-Care Portal"],
+    repositoryUrl: "https://github.com/gackstonew-lgtm/G-Tech-ISP-Billing-System",
+    liveUrl: "https://g-tech-isp-billing-system.vercel.app/",
+    featured: true,
+    classification: "production",
+    status: "Production",
+    filterCategories: ["All", "Full-Stack", "Web Applications", "Business Systems", "FinTech"],
+    problem: "ISPs and WISPs in East Africa often rely on disconnected spreadsheets, manual WinBox router edits, and manual M-Pesa SMS verification, causing delayed subscriber reconnections, revenue leakage, and poor network visibility.",
+    clientSummary: "A unified ISP billing and network operations SaaS platform integrating subscriber CRM, PPPoE and hotspot captive portals, MikroTik RouterOS provisioning, FreeRADIUS AAA, M-Pesa Daraja payment automation, and live NOC telemetry.",
+    clientOutcomes: [
+      "End-to-end automated subscriber renewal: M-Pesa STK Push and C2B Paybill callbacks automatically reconcile ledgers and unlock FreeRADIUS/MikroTik sessions",
+      "Unified multi-tenant operations across Admin & NOC Dashboard, Subscribers CRM, MikroTik Fleet, Hotspot Vouchers, Field Technicians, Customer Self-Care Portal, and Captive Portal",
+      "Multi-tenant PostgreSQL schema with 12 migration modules and Row-Level Security (RLS) isolating organization data"
+    ],
+    engineeringChallenges: [
+      "Bridging asynchronous mobile money callbacks (M-Pesa STK Push and C2B Paybill) with deterministic FreeRADIUS AAA attribute updates and MikroTik session reactivation",
+      "Securing edge MikroTik router management without exposing RouterOS API or WinBox ports directly to the public internet",
+      "Enforcing strict multi-tenant data isolation and granular permissions across ISP owners, finance staff, network engineers, field technicians, and subscribers"
+    ],
+    solutions: [
+      "Engineered a payment reconciliation pipeline (MpesaService and /api/v1/mpesa-callback) that validates Daraja callbacks, records ledger transactions, and updates FreeRADIUS radcheck/radreply bandwidth profiles",
+      "Designed a zero-trust WireGuard tunnel topology paired with MikroTikService and automated RouterOS provisioning script generation",
+      "Implemented PostgreSQL Row-Level Security (RLS) across 12 SQL migration modules alongside a fine-grained RBAC permission matrix (src/lib/auth/rbac.ts)"
+    ],
+    deployment: "Vercel Production Next.js App Router deployment (g-tech-isp-billing-system.vercel.app) backed by PostgreSQL / Supabase, FreeRADIUS 3.x SQL AAA, and WireGuard edge router tunnels.",
+    integrations: ["MikroTik RouterOS v6/v7 API", "FreeRADIUS 3.x (rlm_sql & CoA)", "Safaricom Daraja M-Pesa API (STK Push, C2B, B2C)", "Supabase PostgreSQL & Auth", "WireGuard VPN"],
+    results: [
+      "Live production deployment at g-tech-isp-billing-system.vercel.app with interactive NOC, CRM, Billing, Router Fleet, Voucher, Captive Portal, and Self-Care modules",
+      "Verified by automated billing, revenue reconciliation, and settings validation test suites (node --test)"
+    ],
+    timeline: "October 2026",
+    createdAt: "2026-10-02",
+    updatedAt: "2026-10-03",
+    architectureDiagram: [
+      { layer: "Client & Portal Layer", component: "Next.js 15 + React 19 Multi-Portal UI", detail: "Tenant Admin & NOC Dashboard, Customer Self-Care Portal, and Captive Hotspot Portal" },
+      { layer: "SaaS Control Plane", component: "Next.js API v1 Routes & RBAC Services", detail: "CRM, Service Plans, Voucher Generator, M-Pesa Daraja Webhooks, and NOC Telemetry Services" },
+      { layer: "Data & AAA Persistence", component: "PostgreSQL / Supabase (RLS) + FreeRADIUS SQL", detail: "Multi-tenant relational tables, billing ledgers, and FreeRADIUS radcheck/radreply/radacct mapping" },
+      { layer: "Edge Network Plane", component: "MikroTik RouterOS Fleet + WireGuard Tunnel", detail: "RouterOS v6/v7 provisioning, PPPoE queues, hotspot captive portal, and RFC 3576 CoA session control" }
+    ],
+    caseStudy: {
+      requirements: [
+        "Unify PPPoE subscriber management, dynamic hotspot voucher billing, and customer self-care in a multi-tenant SaaS architecture",
+        "Automate payment collection and instant service activation via Safaricom Daraja M-Pesa STK Push and C2B Paybill webhooks",
+        "Orchestrate MikroTik RouterOS routers, FreeRADIUS AAA policies, technician work orders, and live NOC telemetry"
+      ],
+      technologyChoices: [
+        "Next.js 15 (App Router), React 19, TypeScript, and Tailwind CSS 4 for the multi-portal web application and REST API v1 endpoints",
+        "PostgreSQL / Supabase with Row-Level Security (RLS) for multi-tenant isolation, audit logging, and FreeRADIUS SQL integration",
+        "FreeRADIUS 3.x Vendor-Specific Attributes (Mikrotik-Rate-Limit) and WireGuard encrypted management tunnels for edge router control"
+      ],
+      security: [
+        "Zero-trust router management over encrypted WireGuard tunnels so RouterOS API ports remain unexposed to the public internet",
+        "PostgreSQL Row-Level Security (RLS) policies, RBAC permission guards across 7 operational roles, and server-side M-Pesa callback verification"
+      ],
+      performance: [
+        "Indexed PostgreSQL queries for subscriber lookups, voucher redemption, and RADIUS accounting aggregation",
+        "Decoupled network control and telemetry polling preventing router I/O from blocking web API requests"
+      ],
+      observability: [
+        "Real-time NOC monitoring for router CPU/memory load, interface RX/TX throughput, active PPPoE/Hotspot sessions, and immutable audit logs"
+      ],
+      lessonsLearned: [
+        "Mapping service plan bandwidth limits directly to FreeRADIUS Vendor-Specific Attributes (VSAs) eliminates manual per-router queue configuration drift",
+        "Idempotent mobile money webhook handling is critical to prevent duplicate ledger credits during payment gateway retries"
+      ]
+    },
+    comparison: {
+      frontend: true,
+      backend: true,
+      ai: false,
+      postgresql: true,
+      realtime: true,
+      cloud: true,
+      mobile: false,
+      fintech: true
+    }
   }
 ];
 
 export const githubRepositoryInventory: GitHubRepositoryRecord[] = [
+  {
+    name: "G-Tech-ISP-Billing-System",
+    fullName: "gackstonew-lgtm/G-Tech-ISP-Billing-System",
+    htmlUrl: "https://github.com/gackstonew-lgtm/G-Tech-ISP-Billing-System",
+    description: "Advanced ISP Business Management System",
+    homepage: "https://g-tech-isp-billing-system.vercel.app/",
+    language: "TypeScript",
+    createdAt: "2026-10-02T18:57:25Z",
+    pushedAt: "2026-10-03T09:08:24Z",
+    classification: "production",
+    approved: true,
+    portfolioSlug: "g-tech-isp-billing-system",
+    auditNote: "Approved multi-tenant ISP/WISP billing, MikroTik RouterOS, FreeRADIUS AAA & M-Pesa SaaS platform."
+  },
   {
     name: "WebHunt",
     fullName: "gackstonew-lgtm/WebHunt",
@@ -1238,6 +1338,19 @@ export const githubRepositoryInventory: GitHubRepositoryRecord[] = [
     approved: true,
     portfolioSlug: "arcade-fx",
     auditNote: "Approved quantitative trading analysis engine & charting workspace."
+  },
+  {
+    name: "gackstone",
+    fullName: "gackstonew-lgtm/gackstone",
+    htmlUrl: "https://github.com/gackstonew-lgtm/gackstone",
+    description: "Gackstone portfolio platform - Quantum Code Technologies, Next.js production portfolio",
+    homepage: "https://gackstone.quantumcode.co.ke/",
+    language: "TypeScript",
+    createdAt: "2026-10-01T23:36:40Z",
+    pushedAt: "2026-10-02T11:53:19Z",
+    classification: "excluded",
+    approved: false,
+    auditNote: "Excluded from project cards because it is the active host portfolio platform repository itself."
   },
   {
     name: "GacksDev",
