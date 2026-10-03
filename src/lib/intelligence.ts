@@ -15,6 +15,7 @@ export const technologyRadarData: TechRadarItem[] = [
     quadrant: "Languages",
     ring: "Adopt",
     evidenceProjects: [
+      { slug: "g-tech-isp-billing-system", title: "G-Tech ISP Billing System" },
       { slug: "webhunt", title: "WebHunt" },
       { slug: "gacks-ai", title: "GACKS P.A." },
       { slug: "yardly-automotive", title: "Yardly Automotives" },
@@ -58,6 +59,7 @@ export const technologyRadarData: TechRadarItem[] = [
     quadrant: "Languages",
     ring: "Adopt",
     evidenceProjects: [
+      { slug: "g-tech-isp-billing-system", title: "G-Tech ISP Billing System" },
       { slug: "webhunt", title: "WebHunt" },
       { slug: "yardly-automotive", title: "Yardly Automotives" },
       { slug: "alpha-coach", title: "Alpha Coach" }
@@ -80,6 +82,7 @@ export const technologyRadarData: TechRadarItem[] = [
     quadrant: "Frontend",
     ring: "Adopt",
     evidenceProjects: [
+      { slug: "g-tech-isp-billing-system", title: "G-Tech ISP Billing System" },
       { slug: "gacks-ai", title: "GACKS P.A." },
       { slug: "alpha-coach", title: "Alpha Coach" },
       { slug: "leavoyage-resort", title: "Le Voyage Resort" },
@@ -92,6 +95,7 @@ export const technologyRadarData: TechRadarItem[] = [
     quadrant: "Frontend",
     ring: "Adopt",
     evidenceProjects: [
+      { slug: "g-tech-isp-billing-system", title: "G-Tech ISP Billing System" },
       { slug: "webhunt", title: "WebHunt" },
       { slug: "yardly-automotive", title: "Yardly Automotives" },
       { slug: "for-sale", title: "For Sale" }
@@ -103,6 +107,7 @@ export const technologyRadarData: TechRadarItem[] = [
     quadrant: "Frontend",
     ring: "Adopt",
     evidenceProjects: [
+      { slug: "g-tech-isp-billing-system", title: "G-Tech ISP Billing System" },
       { slug: "webhunt", title: "WebHunt" },
       { slug: "yardly-automotive", title: "Yardly Automotives" },
       { slug: "alpha-coach", title: "Alpha Coach" },
@@ -142,6 +147,7 @@ export const technologyRadarData: TechRadarItem[] = [
     quadrant: "Infrastructure",
     ring: "Adopt",
     evidenceProjects: [
+      { slug: "g-tech-isp-billing-system", title: "G-Tech ISP Billing System" },
       { slug: "webhunt", title: "WebHunt" },
       { slug: "yardly-automotive", title: "Yardly Automotives" },
       { slug: "alpha-coach", title: "Alpha Coach" }
@@ -167,6 +173,7 @@ export const technologyRadarData: TechRadarItem[] = [
     quadrant: "Infrastructure",
     ring: "Adopt",
     evidenceProjects: [
+      { slug: "g-tech-isp-billing-system", title: "G-Tech ISP Billing System" },
       { slug: "webhunt", title: "WebHunt" },
       { slug: "gacks-ai", title: "GACKS P.A." },
       { slug: "yardly-automotive", title: "Yardly Automotives" },
@@ -241,7 +248,7 @@ export function answerPortfolioQuery(rawQuery: string): {
   if (!q) {
     return {
       answer:
-        "Ask me about any project in Gackstone Baraka's portfolio at Quantum Code Technologies (such as Alpha Coach, For Sale, WebHunt, GACKS P.A., Yardly Automotives, Arcade FX, BM Forex Hub, KaringPOS, Le Voyage Resort, VarbanAutoFlex, or Endless Chase), technologies used (PostgreSQL, Next.js, Python, AI, Kotlin, Java), or system architectures.",
+        "Ask me about any project in Gackstone Baraka's portfolio at Quantum Code Technologies (such as G-Tech ISP Billing System, Alpha Coach, For Sale, WebHunt, GACKS P.A., Yardly Automotives, Arcade FX, BM Forex Hub, KaringPOS, Le Voyage Resort, VarbanAutoFlex, or Endless Chase), technologies used (PostgreSQL, Next.js, Python, AI, Kotlin, Java), or system architectures.",
       matchedProjects: projects.filter((p) => p.featured).map((p) => ({
         slug: p.slug,
         title: p.title,
@@ -264,6 +271,7 @@ export function answerPortfolioQuery(rawQuery: string): {
     (p) =>
       q.includes(p.title.toLowerCase()) ||
       q.includes(p.slug.toLowerCase()) ||
+      (p.slug === "g-tech-isp-billing-system" && (q.includes("g-tech") || q.includes("gtech") || q.includes("isp billing") || q.includes("mikrotik") || q.includes("freeradius"))) ||
       (p.slug === "alpha-coach" && (q.includes("alpha coach") || q.includes("meta coach") || q.includes("mt5"))) ||
       (p.slug === "for-sale" && (q.includes("for sale") || q.includes("for-sale") || q.includes("white-label resort"))) ||
       (p.slug === "gacks-ai" && (q.includes("gacks p.a") || q.includes("gacks ai") || q.includes("personal operator"))) ||
@@ -572,7 +580,7 @@ export function answerPortfolioQuery(rawQuery: string): {
 
   return {
     answer:
-      "That specific information is not available in the verified Quantum Code Technologies knowledge base. I only answer using factual repository and portfolio data without inventing claims. You can ask me about any of the 12 verified projects engineered by Gackstone Baraka (such as Alpha Coach, For Sale, WebHunt, GACKS P.A., Yardly Automotives, Arcade FX, BM Forex Hub, KaringPOS, Le Voyage Resort, VarbanAutoFlex, WebHunt Android, or Endless Chase) or the engineering stack.",
+      `That specific information is not available in the verified Quantum Code Technologies knowledge base. I only answer using factual repository and portfolio data without inventing claims. You can ask me about any of the ${projects.length} verified projects engineered by Gackstone Baraka (such as G-Tech ISP Billing System, Alpha Coach, For Sale, WebHunt, GACKS P.A., Yardly Automotives, Arcade FX, BM Forex Hub, KaringPOS, Le Voyage Resort, VarbanAutoFlex, WebHunt Android, or Endless Chase) or the engineering stack.`,
     matchedProjects: [],
     suggestedFollowUps: [
       "What technologies are used across the portfolio?",

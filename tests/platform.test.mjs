@@ -87,9 +87,10 @@ function getAllSourceFiles(dirPath, arrayOfFiles = []) {
 test("1. Project Loading & GitHub Audit Completeness", () => {
   const { projects, githubRepositoryInventory } = loadTsModule("src/data/portfolio.ts");
 
-  assert.equal(projects.length, 12, "Expected 12 verified portfolio projects");
+  assert.equal(projects.length, 13, "Expected 13 verified portfolio projects");
 
   const slugs = projects.map((p) => p.slug);
+  assert.ok(slugs.includes("g-tech-isp-billing-system"), "G-Tech ISP Billing System must be present");
   assert.ok(slugs.includes("alpha-coach"), "Alpha Coach must be present");
   assert.ok(slugs.includes("for-sale"), "For Sale must be present");
   assert.ok(slugs.includes("endless-chase"), "Endless Chase must be present");
@@ -97,6 +98,10 @@ test("1. Project Loading & GitHub Audit Completeness", () => {
   assert.ok(slugs.includes("gacks-ai"), "Gacks AI must be present");
   assert.ok(slugs.includes("bm-forex-hub"), "BM Forex Hub must be present");
   assert.ok(slugs.includes("leavoyage-resort"), "LE-VOYAGE Resort must be present");
+
+  const gTechIsp = projects.find((p) => p.slug === "g-tech-isp-billing-system");
+  assert.equal(gTechIsp.repositoryUrl, "https://github.com/gackstonew-lgtm/G-Tech-ISP-Billing-System");
+  assert.equal(gTechIsp.liveUrl, "https://g-tech-isp-billing-system.vercel.app/");
 
   const alphaCoach = projects.find((p) => p.slug === "alpha-coach");
   assert.equal(alphaCoach.repositoryUrl, "https://github.com/gackstonew-lgtm/Alpha-Coach");
@@ -106,7 +111,7 @@ test("1. Project Loading & GitHub Audit Completeness", () => {
   assert.equal(forSale.repositoryUrl, "https://github.com/gackstonew-lgtm/For-Sale");
   assert.equal(forSale.liveUrl, "https://for-sale-three.vercel.app/");
 
-  assert.equal(githubRepositoryInventory.length, 14, "All 14 public GitHub repositories must be audited");
+  assert.equal(githubRepositoryInventory.length, 16, "All 16 GitHub repositories must be audited");
   const gacksDevRepo = githubRepositoryInventory.find((r) => r.name === "GacksDev");
   assert.equal(gacksDevRepo.classification, "excluded");
   assert.equal(gacksDevRepo.approved, false);
